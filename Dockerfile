@@ -5,6 +5,8 @@ RUN npm install
 COPY . .
 ARG API_URI
 ENV API_URI ${API_URI:-http://localhost:8000/graphql/}
+ARG FORCE_SSL
+ENV FORCE_SSL ${FORCE_SSL:-True}
 RUN API_URI=${API_URI} npm run build
 
 FROM nginx:stable
