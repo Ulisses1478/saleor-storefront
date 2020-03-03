@@ -6,7 +6,7 @@ COPY . .
 ARG API_URI
 ENV API_URI ${API_URI:-http://10.0.0.99:8000/graphql/}
 ARG FORCE_SSL
-ENV FORCE_SSL ${FORCE_SSL:-http://10.0.0.99:8000/graphql/}
+ENV FORCE_SSL ${FORCE_SSL:-True}
 RUN API_URI=${API_URI} FORCE_SSL=${FORCE_SSL} npm run build
 
 FROM nginx:stable
